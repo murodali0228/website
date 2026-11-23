@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    teacher
+{% endblock %}
+
+{% block content %}
+<h1>
+    Oqituvchilar ro`yxati royxati:
+</h1>
+<ol>
+    {% for teacher in teachers %}
+        <li>
+            {{ teacher.jins }}
+            {{ teacher.first_name }}
+            {{ teacher.last_name }}
+            {{ teacher.sertifikat}}
+        </li>
+    {% endfor %}
+</ol>
+    <a href="{% url 'subject' %}">teacher</a>
+{% endblock %}

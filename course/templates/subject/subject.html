@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    subject
+{% endblock %}
+
+{% block content %}
+<h1>
+    Barcha fanlar royxati:
+</h1>
+<ol>
+    {% for subject in subjects %}
+        <li>
+            {{ subject.subject }}
+            {{ subject.student.first_name }}
+            {{ subject.student.last_name }}
+            {{ subject.ball }}
+        </li>
+    {% endfor %}
+</ol>
+    <a href="{% url 'subject' %}">subject</a>
+{% endblock %}

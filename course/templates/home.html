@@ -1,15 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
 <h1>
-    websitega hush kelibsiz!!
+    Tatu Universitetga xush kelibsiz!
 </h1>
-<h3>
-    bu mening birinchi saytim !!
-</h3>
-</body>
-</html>
+<h1>
+    studentlar ro'yxati:
+</h1>
+    <a href="{% url 'students' %}">students</a>
+
+<br> <br>
+<h1>
+    fanlar ro`yxati:
+</h1>
+    <a href="{% url 'subject' %}">subject</a>
+<br> <br>
+<h1>
+    ustozlar ro`yxati:
+</h1>
+    <a href="{% url 'teacher' %}">teacher</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+    Students
+{% endblock %}
+
+{% block content%}
+<h1>
+    Barcha Studentlar royxati:
+</h1>
+<ol>
+    {% for student in students %}
+        <li>
+            {{ student.first_name }}
+            {{ student.last_name }}
+            {{ student.age }}
+        </li>
+    {% endfor %}
+</ol>
+    <a href="{% url 'students' %}">students</a>
+{% endblock %}
