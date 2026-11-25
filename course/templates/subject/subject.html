@@ -10,7 +10,9 @@
 <ol>
     {% for subject in subjects %}
         <li>
-            {{ subject.subject }}
+            <a href="{% url 'detail_subject' subject.pk %}">
+                {{ subject.subject }}
+            </a>
             {{ subject.student.first_name }}
             {{ subject.student.last_name }}
             {{ subject.ball }}

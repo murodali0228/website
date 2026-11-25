@@ -10,8 +10,10 @@
 <ol>
     {% for teacher in teachers %}
         <li>
-            {{ teacher.jins }}
+            <a href="{% url 'detail_teacher' teacher.pk %}">
             {{ teacher.first_name }}
+            </a>
+            {{ teacher.jins }}
             {{ teacher.last_name }}
             {{ teacher.sertifikat}}
         </li>

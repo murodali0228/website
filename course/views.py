@@ -28,6 +28,16 @@ class SubjectView(View):
                 'subjects': subjects,
             }
         )
+class DetailSubjectView(View):
+    def get(self, request, pk):
+        subject = Subject.objects.get(pk=pk)
+        return render(
+            request,
+            'subject/detail_subject.html',
+            {
+                'subject': subject,
+            }
+        )
 class TeacherView(View):
     def get(self, request):
         teachers = Teacher.objects.all()
@@ -36,5 +46,15 @@ class TeacherView(View):
             'teacher/teacher.html',
             {
                 'teachers': teachers,
+            }
+        )
+class DetailTeacherView(View):
+    def get(self, request, pk):
+        teacher = Teacher.objects.get(pk=pk)
+        return render(
+            request,
+            'teacher/detail_teacher.html',
+            {
+                'teacher': teacher,
             }
         )

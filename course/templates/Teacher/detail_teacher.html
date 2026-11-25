@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+    detail teacher
+{% endblock %}
+
+{% block content %}
+<h1>
+    {{ teacher.first_name }} Oqituvchilar ro`yxati royxati:
+</h1>
+<h2>
+    fan nomi: {{ teacher.first_name }}
+</h2>
+<h2>
+    ustoz ma'lumotlari: {{ teacher.teacher.first_name }}-
+    {{ teacher.teacher.last_name }}-{{ teacher.teacher.sertifikat }}
+    {{ teacher.teacher.email }}-{{ teacher.teacher.jins }}
+</h2>
+{% endblock %}
