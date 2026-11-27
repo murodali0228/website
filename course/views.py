@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render
 from django.views import View
 from .models import Student, Subject, Teacher
@@ -10,22 +11,38 @@ class HomeView(View):
         )
 class StudentView(View):
     def get(self, request):
-        students = Student.objects.all()
+        search = request.GET.get('search', '')
+        if search:
+            students = Student.objects.filter(
+                Q(first_name__icontains=search) |
+                Q(last_name__icontains=search)
+            )
+        else:
+            students = Student.objects.all()
         return render(
             request,
 'student/student.html',
             {
                 'students': students,
+                'search': search,
             }
         )
 class SubjectView(View):
     def get(self, request):
-        subjects = Subject.objects.all()
+        search = request.GET.get('search', '')
+        if search:
+            subjects = Subject.objects.filter(
+                Q(first_name__icontains=search) |
+                Q(last_name__icontains=search)
+            )
+        else:
+            subjects = Subject.objects.all()
         return render(
             request,
             'subject/subject.html',
             {
                 'subjects': subjects,
+                'search': search,
             }
         )
 class DetailSubjectView(View):

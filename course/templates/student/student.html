@@ -7,6 +7,12 @@
 <h1>
     Barcha Studentlar royxati:
 </h1>
+<form>
+    <input type="search" name="search" value="{{ search }}" >
+    <button>
+        search
+    </button>
+</form>
 <ol>
     {% for student in students %}
         <li>
@@ -14,6 +20,10 @@
             {{ student.last_name }}
             {{ student.age }}
         </li>
+    {% empty %}
+        <h4>
+            ma'lumot topilmadi !
+        </h4>
     {% endfor %}
 </ol>
 {% endblock %}

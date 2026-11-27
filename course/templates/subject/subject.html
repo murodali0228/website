@@ -7,16 +7,23 @@
 <h1>
     Barcha fanlar royxati:
 </h1>
+<form>
+    <input type="search" name="search" value="{{ search }}" >
+    <button>
+        search
+    </button>
+</form>
 <ol>
     {% for subject in subjects %}
         <li>
-            <a href="{% url 'detail_subject' subject.pk %}">
-                {{ subject.subject }}
-            </a>
             {{ subject.student.first_name }}
             {{ subject.student.last_name }}
             {{ subject.ball }}
         </li>
+    {% empty %}
+        <h4>
+            ma'lumot topilmadi !
+        </h4>
     {% endfor %}
 </ol>
 {% endblock %}
